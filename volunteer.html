@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التطوع وصناع الأثر | ATHAR - أثر للتعليم والتطوير</title>
+  
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="انضم إلى شبكة متطوعي ومدربي أثر في البصرة - ساهم بخبرتك ووقتك في تمكين طلبة المدارس والجامعات وصناعة فرق حقيقي.">
+  <meta property="og:title" content="التطوع وصناع الأثر | ATHAR">
+  <meta property="og:description" content="استمارة الانضمام لفريق متطوعي ومدربي مبادرات أثر المجتمعية.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo-emblem-dark-bg.svg">
+
+  <!-- Fonts: Noto Kufi Arabic + IBM Plex Sans Arabic + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Montserrat:wght@500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            athar: {
+              navy: '#10253D',
+              'navy-dark': '#0A1828',
+              gold: '#D7B678',
+              offwhite: '#F5F4F0',
+              slate: '#566373',
+              teal: '#3E8E87',
+              'teal-dark': '#1E4D48'
+            }
+          },
+          fontFamily: {
+            heading: ['"Noto Kufi Arabic"', 'sans-serif'],
+            body: ['"IBM Plex Sans Arabic"', 'sans-serif'],
+            mono: ['"Montserrat"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Editorial Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-athar-navy text-athar-offwhite antialiased selection:bg-athar-gold selection:text-athar-navy">
+
+  <!-- Custom Desktop Gold Dot Cursor -->
+  <div id="atharCursor"></div>
+  <div id="atharCursorRing"></div>
+
+  <!-- ==================== EDITORIAL HEADER ==================== -->
+  <header class="sticky top-0 z-50 w-full bg-athar-navy/95 border-b border-athar-gold/20 backdrop-blur-md transition-all">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+      
+      <!-- Brand Logotype -->
+      <a href="index.html" class="flex items-center gap-4 group">
+        <svg class="w-6 h-12 text-athar-gold" viewBox="0 0 24 48" fill="none">
+          <circle cx="12" cy="7" r="3.5" fill="#D7B678" />
+          <path d="M12 15 V42" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+          <path d="M4 42 C 4 28, 20 28, 20 42" stroke="#D7B678" stroke-width="1.8" stroke-linecap="round" fill="none" />
+        </svg>
+        <div class="flex flex-col">
+          <span class="text-2xl font-bold tracking-tight text-white font-heading" data-i18n="nav_brand">أثر</span>
+          <span class="meta-mono text-xs text-athar-gold" data-i18n="nav_brand_en">A T H A R &nbsp;•&nbsp; B A S R A</span>
+        </div>
+      </a>
+
+      <!-- Desktop Editorial Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="index.html" data-nav-item="home" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_home">الرئيسية</a>
+        <a href="about.html" data-nav-item="about" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_about">من نحن</a>
+        <a href="academy.html" data-nav-item="academy" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_academy">أكاديمية أثر</a>
+        <a href="impact.html" data-nav-item="impact" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_impact">أثر المجتمعية</a>
+        <a href="partnerships.html" data-nav-item="partnerships" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_partnerships">الشراكات</a>
+        <a href="volunteer.html" data-nav-item="volunteer" class="hover:text-athar-gold transition-colors py-1 text-athar-gold" data-i18n="nav_volunteer">التطوع</a>
+        <a href="contact.html" data-nav-item="contact" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_contact">تواصل معنا</a>
+      </nav>
+
+      <!-- Action Group -->
+      <div class="hidden sm:flex items-center gap-4">
+        <button id="langToggleBtn" class="px-4 py-2 rounded-[4px] border border-athar-gold/30 text-xs font-mono font-semibold text-athar-gold hover:bg-athar-gold/10 transition-colors">
+          <span>English</span>
+        </button>
+        <a href="#volunteer-form" class="athar-btn-primary text-xs font-heading font-bold !py-2.5 !px-5">
+          <span data-i18n="vol_btn">سجل كمتطوع الآن</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-white border border-white/20 rounded-[4px]" aria-label="القائمة">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/85 z-50 hidden opacity-0 transition-opacity"></div>
+  <aside id="mobileMenuDrawer" class="fixed top-0 bottom-0 right-0 w-80 bg-athar-navy z-50 p-8 flex flex-col justify-between translate-x-full transition-transform duration-300 border-s border-athar-gold/25">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <span class="font-heading font-bold text-xl text-white">أثر | ATHAR</span>
+        <button id="mobileMenuCloseBtn" class="text-gray-400 hover:text-white text-2xl font-mono">&times;</button>
+      </div>
+      <nav class="mt-8 flex flex-col gap-4 text-base font-medium text-gray-300">
+        <a href="index.html" data-nav-item="home" class="py-2 hover:text-athar-gold" data-i18n="nav_home">الرئيسية</a>
+        <a href="about.html" data-nav-item="about" class="py-2 hover:text-athar-gold" data-i18n="nav_about">من نحن</a>
+        <a href="academy.html" data-nav-item="academy" class="py-2 hover:text-athar-gold" data-i18n="nav_academy">أكاديمية أثر</a>
+        <a href="impact.html" data-nav-item="impact" class="py-2 hover:text-athar-gold" data-i18n="nav_impact">أثر المجتمعية</a>
+        <a href="partnerships.html" data-nav-item="partnerships" class="py-2 hover:text-athar-gold" data-i18n="nav_partnerships">الشراكات</a>
+        <a href="volunteer.html" data-nav-item="volunteer" class="py-2 hover:text-athar-gold text-athar-gold" data-i18n="nav_volunteer">التطوع</a>
+        <a href="contact.html" data-nav-item="contact" class="py-2 hover:text-athar-gold" data-i18n="nav_contact">تواصل معنا</a>
+      </nav>
+    </div>
+    <div class="pt-6 border-t border-white/10 space-y-3">
+      <button id="langToggleBtnMobile" class="w-full py-2.5 rounded-[4px] border border-athar-gold/40 text-xs font-mono font-semibold text-athar-gold">
+        <span>English</span>
+      </button>
+      <a href="#volunteer-form" class="w-full athar-btn-primary text-xs font-heading font-bold !py-3 text-center block">
+        <span data-i18n="vol_btn">سجل كمتطوع الآن</span>
+      </a>
+    </div>
+  </aside>
+
+
+  <!-- ==================== HERO — FULL-BLEED NAVY (Mode 1: Navy & Gold) ==================== -->
+  <section class="section-navy pt-20 pb-28 md:pt-28 md:pb-40">
+    <canvas id="volHeroCanvas" class="background-canvas-layer"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      <div class="max-w-4xl">
+
+        <!-- Section Identifier -->
+        <span class="section-numeral-tag" data-i18n="vol_hero_badge">00 / فريق المبادرات وصناع الأثر — البصرة</span>
+
+        <!-- Display Title -->
+        <h1 class="display-title font-heading text-white mb-6" data-i18n="vol_hero_title">
+          انضم كمتطوع في أثر
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="body-lead text-gray-300 max-w-2xl mb-10" data-i18n="vol_hero_desc">
+          إذا كنت تمتلك شغفاً بالتعليم، التدريب، التنظيم، أو التصميم، فمكانك معنا للمساهمة في خدمة مجتمع البصرة.
+        </p>
+
+        <!-- CTA Row -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#volunteer-form" class="athar-btn-primary text-sm">
+            <span data-i18n="vol_btn">سجل كمتطوع الآن</span>
+          </a>
+          <a href="#why" class="athar-btn-secondary text-sm">
+            <span>ماذا يمنحك التطوع معنا؟</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== SECTION 01 — WHY VOLUNTEER (Off-White Mode 2) ==================== -->
+  <section id="why" class="section-offwhite py-24 md:py-32">
+    <canvas id="volWhyCanvas" class="background-canvas-layer"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+      <!-- Section Tag -->
+      <span class="section-numeral-tag" data-i18n="vol_tag_why">01 / مزايا التطوع والقيمة المضافة</span>
+
+      <div class="max-w-3xl mb-12">
+        <h2 class="h1-title text-athar-navy mb-4" data-i18n="vol_why_title">ماذا يمنحك التطوع مع أثر؟</h2>
+        <p class="body-lead text-slate-800">
+          التطوع في أثر ليس مجرد مشاركة، بل تجربة عملية تصقل مهاراتك القيادية والتنظيمية وتمنحك أثراً حقيقياً.
+        </p>
+      </div>
+
+      <!-- Hairline Ruled List of Benefits -->
+      <div class="hairline-ruled-list">
+
+        <!-- Benefit 1 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">01</span>
+          <div class="hairline-content">
+            <h3>صناعة أثر اجتماعي ملموس</h3>
+            <p data-i18n="vol_why_1">صناعة أثر اجتماعي حقيقي في تعليم الأجيال الناشئة في البصرة وتمكينهم من أدوات العصر.</p>
+          </div>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">02</span>
+          <div class="hairline-content">
+            <h3>خبرة مهنية في بيئة رصينة</h3>
+            <p data-i18n="vol_why_2">بيئة احترافية تكسبك خبرة عملية في إدارة الفعاليات والتدريب والتوجيه الأكاديمي.</p>
+          </div>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">03</span>
+          <div class="hairline-content">
+            <h3>شهادة تطوع وتوثيق ساعات العمل</h3>
+            <p data-i18n="vol_why_3">شهادة تطوع ومشاركة رسمية تثبت جهودك وساعاتك التطوعية صادرة عن مشروع أثر.</p>
+          </div>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">04</span>
+          <div class="hairline-content">
+            <h3>شبكة علاقات وتطوير ذاتي</h3>
+            <p>الاحتكاك المباشر بنخبة من الأساتذة، المدربين، وإدارات المؤسسات التعليمية في محافظة البصرة.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== SECTION 02 — VOLUNTEER TRACKS (Navy Mode 1) ==================== -->
+  <section class="section-navy py-24 md:py-32">
+    <canvas id="volTracksCanvas" class="background-canvas-layer"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+      <!-- Section Tag -->
+      <span class="section-numeral-tag" data-i18n="vol_tag_tracks">02 / مسارات المشاركة التطوعية</span>
+
+      <div class="max-w-3xl mb-12">
+        <h2 class="h1-title text-white mb-4">في أي المجالات يمكنك المشاركة؟</h2>
+        <p class="body-lead text-gray-100">
+          اختر المسار الذي يطابق شغفك ومهاراتك لتصنع من خلاله فارقاً حقيقياً.
+        </p>
+      </div>
+
+      <!-- Hairline Ruled List of Tracks -->
+      <div class="hairline-ruled-list">
+
+        <!-- Track 1 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">01</span>
+          <div class="hairline-content">
+            <h3>التدريب وتقديم الورش التفاعلية</h3>
+            <p>إلقاء المحاضرات وتيسير الورش التعليمية في المدارس والجامعات في مجالات التكنولوجيا، الذكاء الاصطناعي، والمهارات الرقمية.</p>
+          </div>
+        </div>
+
+        <!-- Track 2 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">02</span>
+          <div class="hairline-content">
+            <h3>التنظيم واللوجستيك وإدارة الفعاليات</h3>
+            <p>تجهيز القاعات، التنسيق الميداني داخل المدارس، استقبال المشاركين، وإدارة الوقت والأنشطة لضمان انسيابية الورش.</p>
+          </div>
+        </div>
+
+        <!-- Track 3 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">03</span>
+          <div class="hairline-content">
+            <h3>صناعة المحتوى، الإعلام، والتصميم</h3>
+            <p>توثيق المبادرات فوتوغرافياً، صناعة التقارير المرئية، كتابة المنشورات التوعوية، وتصميم الهويات البصرية للفعاليات.</p>
+          </div>
+        </div>
+
+        <!-- Track 4 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">04</span>
+          <div class="hairline-content">
+            <h3>العلاقات والتواصل المؤسسي</h3>
+            <p>التواصل المسبق مع إدارات المدارس والكليات، متابعة التنسيق الإداري، وجمع استطلاعات الرأي وتقارير قياس الأثر.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== SECTION 03 — VOLUNTEER FORM (Off-White Mode 2) ==================== -->
+  <section id="volunteer-form" class="section-offwhite py-24 md:py-32">
+    <canvas id="volFormCanvas" class="background-canvas-layer"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+        <!-- Left: Form Narrative -->
+        <div class="lg:col-span-5">
+          <span class="section-numeral-tag" data-i18n="vol_tag_form">03 / استمارة التسجيل والالتحاق</span>
+          
+          <h2 class="h1-title text-athar-navy mb-6" data-i18n="vol_form_title">استمارة تسجيل المتطوعين</h2>
+          <p class="body-lead text-slate-800 mb-8">
+            املأ البيانات وسيقوم فريق أثر بالتواصل معك لإجراء جلسة تعارف سريعة وتحديد مسار المشاركة الأنسب.
+          </p>
+
+          <div class="border border-athar-navy/20 rounded-[4px] p-6 space-y-3 bg-athar-navy/[0.02]">
+            <div class="meta-mono text-sm text-athar-navy font-bold">VOLUNTEER COMMITMENT / ميثاق التطوع</div>
+            <p class="text-sm text-slate-800 leading-relaxed">
+              • التطوع مرن وفق وقتك وجدولك الدراسي أو المهني.<br>
+              • النشاطات تُقام أساساً في مدارس وجامعات البصرة.<br>
+              • نلتزم ببيئة عمل قائمة على التقدير والاحترام المتبادل.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: The Application Form -->
+        <div class="lg:col-span-7">
+          <div class="border border-athar-navy/25 rounded-[4px] p-8 lg:p-10 bg-white">
+
+            <form id="volunteerApplicationForm" class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-sm font-semibold text-athar-navy mb-1.5">الاسم الكامل *</label>
+                  <input type="text" id="volName" required placeholder="الاسم الثلاثي أو اللقب" class="athar-editorial-input">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-athar-navy mb-1.5">رقم الهاتف / واتساب *</label>
+                  <input type="tel" id="volPhone" required placeholder="077XXXXXXXX" class="athar-editorial-input font-mono">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-sm font-semibold text-athar-navy mb-1.5">المسار التطوعي المفضل *</label>
+                  <select id="volTrack" class="athar-editorial-input">
+                    <option value="التدريب وتقديم الورش">التدريب وتقديم الورش</option>
+                    <option value="التنظيم واللوجستيك">التنظيم واللوجستيك وإدارة الفعاليات</option>
+                    <option value="صناعة المحتوى والتصميم">صناعة المحتوى والإعلام والتصميم</option>
+                    <option value="العلاقات العامة والتواصل">العلاقات العامة والتواصل المؤسسي</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-athar-navy mb-1.5">التخصص الأكاديمي أو المهني</label>
+                  <input type="text" id="volSpecialty" placeholder="مثال: هندسة برمجيات / إدارة أعمال" class="athar-editorial-input">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-athar-navy mb-1.5">البريد الإلكتروني (اختياري)</label>
+                <input type="email" id="volEmail" placeholder="volunteer@example.com" class="athar-editorial-input font-mono">
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-athar-navy mb-1.5">نبذة عن خبراتك وسبب رغبتك بالانضمام</label>
+                <textarea id="volBio" rows="4" placeholder="أخبرنا باختصار عن تجاربك السابقة، مهاراتك، ودافعك للمشاركة في مبادرات أثر..." class="athar-editorial-input resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="athar-btn-primary w-full mt-4">
+                <span>إرسال استمارة التطوع</span>
+              </button>
+              
+              <!-- Success State -->
+              <div id="volFormSuccessMsg" class="hidden p-5 rounded-[4px] bg-emerald-900/30 border border-emerald-500/40 text-center mt-4">
+                <h4 class="font-heading font-bold text-athar-navy text-base mb-1" data-i18n="form_success_title">تم استلام طلبكم بنجاح</h4>
+                <p class="text-sm font-medium text-slate-700" data-i18n="form_success_desc">شكراً لاهتمامك بالانضمام إلى فريق أثر. سيقوم المنسق بالتواصل معك قريباً.</p>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== EDITORIAL FOOTER ==================== -->
+  <footer class="bg-athar-navy-dark text-white pt-20 pb-16 border-t border-athar-gold/20 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+        
+        <!-- Brand Narrative Column -->
+        <div class="md:col-span-5 space-y-6">
+          <div class="flex items-center gap-3">
+            <span class="font-heading font-bold text-2xl text-white">أثر | ATHAR</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed max-w-sm" data-i18n="footer_tagline">
+            نعلّم اليوم، لنصنع أثر الغد. مشروع عراقي رائد ينطلق من البصرة لتمكين الأجيال القادمة وبناء قدرات الشباب.
+          </p>
+          <div class="meta-mono text-xs text-athar-gold space-y-1">
+            <div>HQ: BASRA — IRAQ</div>
+            <div>TEL: 07727437144</div>
+            <div>IG: @ATHAREDU.IQ</div>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="md:col-span-3 space-y-3">
+          <span class="meta-mono text-xs text-athar-gold block mb-4">PAGES / الصفحات</span>
+          <ul class="space-y-2 text-sm text-gray-400 font-medium">
+            <li><a href="index.html" class="hover:text-athar-gold transition-colors">الرئيسية</a></li>
+            <li><a href="about.html" class="hover:text-athar-gold transition-colors">من نحن والفلسفة</a></li>
+            <li><a href="academy.html" class="hover:text-athar-gold transition-colors">أكاديمية أثر</a></li>
+            <li><a href="impact.html" class="hover:text-athar-gold transition-colors">أثر المجتمعية</a></li>
+            <li><a href="partnerships.html" class="hover:text-athar-gold transition-colors">الشراكات المؤسسية</a></li>
+            <li><a href="volunteer.html" class="hover:text-athar-gold transition-colors text-athar-gold">فريق التطوع</a></li>
+            <li><a href="contact.html" class="hover:text-athar-gold transition-colors">تواصل معنا</a></li>
+          </ul>
+        </div>
+
+        <!-- Volunteer Note -->
+        <div class="md:col-span-4 space-y-3">
+          <span class="meta-mono text-xs text-athar-gold block mb-4">VOLUNTEER / مجتمع المتطوعين</span>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            نؤمن بأن كل طاقة شابة قادرة على إحداث فرق إيجابي في مجتمعها، ونفتح أبوابنا لكل من يمتلك الشغف لخدمة التعليم في البصرة.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Legal & Accreditation Transparency Notice -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-mono">
+        <p>جميع الحقوق محفوظة © 2026 مشروع أثر للتعليم والتطوير (ATHAR)</p>
+        <p class="text-gray-400 max-w-xl text-center md:text-end">
+          تنويه: المشروع في مرحلة التأسيس من البصرة، والشهادات الممنوحة في الورش التدريبية هي شهادات حضور ومشاركة تصدر عن أثر.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING WHATSAPP CTA ==================== -->
+  <button data-whatsapp-action class="athar-whatsapp-cta" aria-label="واتساب مباشر">
+    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/></svg>
+    <span>07727437144</span>
+  </button>
+
+  <!-- ==================== UNIFIED APPLICATION MODAL ==================== -->
+  <div id="atharModalContainer" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+    <div id="atharModalBackdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm"></div>
+    
+    <div class="relative bg-athar-navy-dark rounded-[4px] border border-athar-gold/30 max-w-lg w-full p-8 shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
+      <button id="atharModalCloseBtn" class="absolute top-5 end-5 text-gray-400 hover:text-white font-mono text-2xl">&times;</button>
+
+      <div class="mb-6">
+        <span class="meta-mono text-xs text-athar-gold block mb-1">ATHAR | أثر للتعليم والتطوير</span>
+        <h3 id="modalTitle" class="h3-title text-white" data-i18n="vol_form_title">استمارة تسجيل المتطوعين</h3>
+        <p id="modalDesc" class="text-xs text-gray-400 mt-1 leading-relaxed">
+          انضم إلى فريق أثر وساهم في نشر المعرفة في مدارس وجامعات البصرة.
+        </p>
+      </div>
+
+      <div id="modalSuccessState" class="hidden p-4 rounded-[4px] bg-emerald-900/30 border border-emerald-500/40 text-center my-4">
+        <h4 class="font-heading font-bold text-white text-base mb-1" data-i18n="form_success_title">تم استلام طلبكم بنجاح</h4>
+        <p class="text-xs text-gray-300" data-i18n="form_success_desc">شكراً لاهتمامك بمشروع أثر. سيقوم فريقنا بالتواصل معكم في أقرب وقت للتنسيق.</p>
+      </div>
+
+      <form id="atharModalForm" class="space-y-4">
+        <input type="hidden" id="modalFormType" value="طلب تطوع">
+
+        <div>
+          <label class="block text-sm font-semibold text-athar-gold mb-1">الاسم الكامل *</label>
+          <input type="text" id="inputName" required placeholder="الاسم الثلاثي أو اللقب" class="athar-editorial-input">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-athar-gold mb-1">رقم الهاتف / واتساب *</label>
+          <input type="tel" id="inputPhone" required placeholder="077XXXXXXXX" class="athar-editorial-input font-mono">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-athar-gold mb-1">اسم المؤسسة أو المدرسة / التخصص</label>
+          <input type="text" id="inputInstitution" placeholder="مثال: إعدادية البصرة للبنين / كلية الهندسة" class="athar-editorial-input">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-athar-gold mb-1">البريد الإلكتروني (اختياري)</label>
+          <input type="email" id="inputEmail" placeholder="example@email.com" class="athar-editorial-input font-mono">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-athar-gold mb-1">ملاحظات أو تفاصيل إضافية</label>
+          <textarea id="inputNotes" rows="3" placeholder="حدد التاريخ المقترح، عدد الحضور المتوقع، أو نوع الورشة..." class="athar-editorial-input resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="athar-btn-primary w-full mt-2">
+          <span>إرسال الطلب الآن</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="pattern-background.js"></script>
+  <script src="translations.js"></script>
+  <script src="main.js"></script>
+
+  <script>
+    // Hero Canvas (Mode 1: Navy & Gold)
+    const volHeroCanvas = document.getElementById('volHeroCanvas');
+    if (volHeroCanvas) {
+      new AtharPatternBackground(volHeroCanvas, {
+        mode: 'navy',
+        interactive: true,
+        animated: true
+      });
+    }
+
+    // Why Canvas (Mode 2: Off-White)
+    const volWhyCanvas = document.getElementById('volWhyCanvas');
+    if (volWhyCanvas) {
+      new AtharPatternBackground(volWhyCanvas, {
+        mode: 'offwhite',
+        interactive: true,
+        animated: true
+      });
+    }
+
+    // Tracks Canvas (Mode 1: Navy & Gold)
+    const volTracksCanvas = document.getElementById('volTracksCanvas');
+    if (volTracksCanvas) {
+      new AtharPatternBackground(volTracksCanvas, {
+        mode: 'navy',
+        interactive: true,
+        animated: true
+      });
+    }
+
+    // Form Canvas (Mode 2: Off-White)
+    const volFormCanvas = document.getElementById('volFormCanvas');
+    if (volFormCanvas) {
+      new AtharPatternBackground(volFormCanvas, {
+        mode: 'offwhite',
+        interactive: true,
+        animated: true
+      });
+    }
+
+    // Volunteer Form Handler
+    const volForm = document.getElementById('volunteerApplicationForm');
+    if (volForm) {
+      volForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const data = {
+          name: document.getElementById('volName').value,
+          phone: document.getElementById('volPhone').value,
+          track: document.getElementById('volTrack').value,
+          specialty: document.getElementById('volSpecialty').value,
+          email: document.getElementById('volEmail').value,
+          bio: document.getElementById('volBio').value,
+          timestamp: new Date().toISOString(),
+          type: 'تسجيل متطوع في أثر'
+        };
+
+        const submissions = JSON.parse(localStorage.getItem('athar_volunteer_applications') || '[]');
+        submissions.push(data);
+        localStorage.setItem('athar_volunteer_applications', JSON.stringify(submissions));
+
+        volForm.style.display = 'none';
+        document.getElementById('volFormSuccessMsg').classList.remove('hidden');
+      });
+    }
+  </script>
+
+</body>
+</html>

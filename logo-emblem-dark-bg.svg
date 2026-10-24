@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Hamza / Golden Seed Dot -->
+  <circle cx="100" cy="45" r="8" fill="#D7B678" />
+  
+  <!-- Central Vertical Alef Stem -->
+  <path d="M100 62 V140" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" />
+  
+  <!-- Outer Gold Expanding Arc -->
+  <path d="M55 142 C 55 95, 145 95, 145 142" stroke="#D7B678" stroke-width="6" stroke-linecap="round" fill="none" />
+  
+  <!-- Inner White Expanding Arc -->
+  <path d="M72 142 C 72 110, 128 110, 128 142" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" fill="none" />
+</svg>

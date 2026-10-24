@@ -1,0 +1,901 @@
+/* ==========================================================================
+   ATHAR Educational Platform - Editorial Design System
+   Art Direction: "The impact expands"
+   Calm, disciplined, asymmetric editorial grid, full-bleed alternating sections.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Montserrat:wght@500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&display=swap');
+
+:root {
+  /* Strict Institutional Palette */
+  --color-navy: #10253D;
+  --color-navy-dark: #0A1828;
+  --color-gold: #D7B678;
+  --color-gold-muted: rgba(215, 182, 120, 0.45);
+  --color-offwhite: #F5F4F0;
+  --color-slate: #566373;
+  --color-slate-light: #8E9BAA;
+  --color-teal: #3E8E87;
+  --color-teal-dark: #1E4D48;
+
+  /* Typography */
+  --font-heading: 'Noto Kufi Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Montserrat', monospace;
+
+  /* Fluid Typographic Scale */
+  --type-display: clamp(2.5rem, 5.5vw, 4.5rem);
+  --type-h1: clamp(2rem, 4vw, 3.25rem);
+  --type-h2: clamp(1.6rem, 3vw, 2.5rem);
+  --type-h3: clamp(1.25rem, 2vw, 1.75rem);
+  --type-body: clamp(1.125rem, 1.15vw, 1.25rem);
+  --type-meta: clamp(0.8125rem, 0.9vw, 0.875rem);
+}
+
+/* ==========================================================================
+   Base Reset & Fundamentals
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  font-size: 16px;
+  background-color: var(--color-navy);
+  color: var(--color-offwhite);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-navy);
+  color: var(--color-offwhite);
+  line-height: 1.9;
+  font-size: var(--type-body);
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+[dir="ltr"] body {
+  font-family: var(--font-body);
+}
+
+[dir="ltr"] .font-en-display {
+  font-family: var(--font-mono);
+}
+
+/* Custom Desktop Gold Dot Cursor */
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
+  }
+  a, button, input, select, textarea {
+    cursor: none;
+  }
+}
+
+#atharCursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: var(--color-gold);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s ease, height 0.15s ease, background-color 0.2s ease;
+  box-shadow: 0 0 8px rgba(215, 182, 120, 0.6);
+}
+
+#atharCursorRing {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  border: 1px solid rgba(215, 182, 120, 0.45);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+}
+
+/* Hairline Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Full-Bleed Alternating Sections & Grain Texture
+   ========================================================================= */
+.section-navy {
+  background-color: var(--color-navy);
+  color: var(--color-offwhite);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-navy::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.section-navy h1,
+.section-navy h2,
+.section-navy h3,
+.section-navy h4,
+.section-navy .h1-title,
+.section-navy .h2-title,
+.section-navy .h3-title {
+  color: #FFFFFF !important;
+}
+
+.section-navy p,
+.section-navy .body-lead,
+.section-navy .hairline-content p {
+  color: #E2E8F0 !important;
+}
+
+.section-navy .text-gray-400 {
+  color: #CBD5E1 !important;
+}
+
+.section-offwhite {
+  background-color: var(--color-offwhite) !important;
+  color: #0F172A !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-offwhite h1, 
+.section-offwhite h2, 
+.section-offwhite h3, 
+.section-offwhite h4,
+.section-offwhite .h1-title,
+.section-offwhite .h2-title,
+.section-offwhite .h3-title {
+  color: #10253D !important;
+}
+
+.section-offwhite p, 
+.section-offwhite .body-lead,
+.section-offwhite .hairline-content p {
+  color: #1E293B !important;
+  font-weight: 450;
+}
+
+.section-offwhite .section-numeral-tag {
+  color: #10253D !important;
+  font-weight: 700 !important;
+}
+
+.section-offwhite a:not(.athar-btn-primary):not(.athar-btn-teal) {
+  color: #10253D !important;
+}
+
+.section-offwhite a:not(.athar-btn-primary):not(.athar-btn-teal):hover {
+  color: #0A1828 !important;
+}
+
+.section-offwhite .meta-mono,
+.section-offwhite .text-xs,
+.section-offwhite .text-sm,
+.section-offwhite [class*="text-athar-slate"] {
+  color: #1E293B !important;
+  font-weight: 600;
+}
+
+/* Teal Mode for Impact Pages */
+.section-teal {
+  background-color: var(--color-navy);
+  color: var(--color-offwhite);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-teal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.section-teal h1,
+.section-teal h2,
+.section-teal h3,
+.section-teal h4,
+.section-teal .h1-title,
+.section-teal .h2-title,
+.section-teal .h3-title {
+  color: #FFFFFF !important;
+}
+
+.section-teal p,
+.section-teal .body-lead,
+.section-teal .hairline-content p {
+  color: #F8FAFC !important;
+}
+
+.section-teal .section-numeral-tag {
+  color: #5EC4BB !important;
+  font-weight: 700 !important;
+}
+
+.section-teal .hairline-ruled-list {
+  border-top: 1px solid rgba(62, 142, 135, 0.4);
+}
+
+.section-teal .hairline-item {
+  border-bottom: 1px solid rgba(62, 142, 135, 0.3);
+}
+
+.section-teal .hairline-numeral {
+  color: #5EC4BB !important;
+}
+
+.section-teal .hairline-content h3 {
+  color: #FFFFFF !important;
+}
+
+.section-teal .hairline-content p {
+  color: #F1F5F9 !important;
+}
+
+.section-teal .athar-editorial-input {
+  border-color: rgba(62, 142, 135, 0.5);
+  background-color: rgba(10, 28, 32, 0.85);
+  color: #FFFFFF !important;
+}
+
+.section-teal .athar-editorial-input:focus {
+  border-color: #5EC4BB !important;
+  box-shadow: 0 0 0 1px #5EC4BB;
+}
+
+/* Background Canvas Layer */
+.background-canvas-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Section Header Numeral */
+.section-numeral-tag {
+  font-family: var(--font-heading), var(--font-body), sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: normal;
+  color: #E5C78E !important;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+[dir="ltr"] .section-numeral-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.18em;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+}
+
+.section-offwhite .section-numeral-tag {
+  color: #10253D !important;
+  font-weight: 800 !important;
+}
+
+.section-teal .section-numeral-tag {
+  color: #5EC4BB !important;
+  font-weight: 800 !important;
+}
+
+/* RTL Letter Spacing & Monospace Safeguards (Ensures cursive Arabic ligatures never break) */
+html[dir="rtl"] *,
+[dir="rtl"] * {
+  letter-spacing: normal !important;
+}
+
+/* RTL: Any element with font-mono MUST render in standard Arabic font when in RTL, not broken Latin monospace */
+html[dir="rtl"] .font-mono:not([dir="ltr"]):not(.ltr-token):not(.hairline-numeral) {
+  font-family: var(--font-body), 'IBM Plex Sans Arabic', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+html[dir="rtl"] .hairline-numeral {
+  font-family: var(--font-mono), 'Montserrat', monospace !important;
+  letter-spacing: 0.05em !important;
+}
+
+html[dir="ltr"] .meta-mono,
+[dir="ltr"] .meta-mono {
+  letter-spacing: 0.15em;
+}
+
+/* ==========================================================================
+   Disciplined Editorial Headings & Typography
+   ========================================================================== */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.28;
+}
+
+.display-title {
+  font-size: var(--type-display);
+  line-height: 1.15;
+}
+
+.h1-title {
+  font-size: var(--type-h1);
+}
+
+.h2-title {
+  font-size: var(--type-h2);
+}
+
+.h3-title {
+  font-size: var(--type-h3);
+}
+
+.body-lead {
+  font-size: var(--type-body);
+  line-height: 1.95;
+  font-weight: 400;
+}
+
+.meta-mono {
+  font-family: var(--font-mono);
+  font-size: var(--type-meta);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+[dir="rtl"] .meta-mono {
+  font-family: var(--font-heading), var(--font-body), sans-serif !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+/* ==========================================================================
+   Hero Alif Stem & Expanding Arcs Choreography
+   ========================================================================== */
+.hero-alif-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+@keyframes alifStemRise {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scaleY(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes alifSeedAppear {
+  0% {
+    transform: translateY(20px) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes arcBloomEnter {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+}
+
+@keyframes arcAmbientFloat {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.025);
+  }
+}
+
+.hero-alif-stem {
+  transform-origin: bottom center;
+  animation: alifStemRise 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-alif-seed {
+  animation: alifSeedAppear 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+  opacity: 0;
+}
+
+.hero-alif-arc-outer {
+  transform-origin: 100px 145px;
+  animation: arcBloomEnter 2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards, arcAmbientFloat 10s ease-in-out 2.5s infinite;
+}
+
+.hero-alif-arc-inner {
+  transform-origin: 100px 145px;
+  animation: arcBloomEnter 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards, arcAmbientFloat 10s ease-in-out 3.1s infinite;
+}
+
+/* Word-by-word reveal for Hero Headline */
+.word-reveal-span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: wordSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes wordSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Hairline Ruled Lists (Replaces generic icon cards!)
+   ========================================================================== */
+.hairline-ruled-list {
+  border-top: 1px solid rgba(215, 182, 120, 0.25);
+  margin-top: 2rem;
+}
+
+.section-offwhite .hairline-ruled-list {
+  border-top: 1px solid rgba(16, 37, 61, 0.18);
+}
+
+.hairline-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 2.25rem 0;
+  border-bottom: 1px solid rgba(215, 182, 120, 0.2);
+  transition: padding 0.25s ease;
+}
+
+.section-offwhite .hairline-item {
+  border-bottom: 1px solid rgba(16, 37, 61, 0.14);
+}
+
+.hairline-item:hover {
+  padding-right: 0.75rem;
+}
+
+[dir="ltr"] .hairline-item:hover {
+  padding-right: 0;
+  padding-left: 0.75rem;
+}
+
+.hairline-numeral {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #E5C78E;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.section-offwhite .hairline-numeral {
+  color: #10253D !important;
+  font-weight: 800;
+}
+
+.hairline-content h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.35rem;
+  color: #FFFFFF;
+}
+
+.section-offwhite .hairline-content h3 {
+  color: #10253D !important;
+  font-weight: 700;
+}
+
+.hairline-content p {
+  font-size: 1.05rem;
+  color: #F1F5F9;
+  line-height: 1.8;
+}
+
+.section-offwhite .hairline-content p {
+  color: #1E293B !important;
+  font-weight: 450;
+}
+
+@media (max-width: 768px) {
+  .hairline-item {
+    grid-template-columns: 50px 1fr;
+    gap: 1rem;
+    padding: 1.75rem 0;
+  }
+  .hairline-numeral {
+    font-size: 1.35rem;
+  }
+}
+
+/* ==========================================================================
+   Strict Disciplined Buttons (4px max radius, NO gradients, NO pills)
+   ========================================================================== */
+.athar-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-gold);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.athar-btn-primary:hover {
+  background-color: #E2C58F;
+  border-color: #E2C58F;
+  color: #000000;
+}
+
+.athar-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  color: var(--color-offwhite);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid rgba(215, 182, 120, 0.4);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.athar-btn-secondary:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: rgba(215, 182, 120, 0.08);
+}
+
+.section-offwhite .athar-btn-secondary {
+  color: var(--color-navy);
+  border-color: rgba(16, 37, 61, 0.35);
+}
+
+.section-offwhite .athar-btn-secondary:hover {
+  border-color: var(--color-navy);
+  color: var(--color-navy);
+  background: rgba(16, 37, 61, 0.06);
+}
+
+.athar-btn-teal {
+  background-color: var(--color-teal);
+  color: #FFFFFF;
+  border: 1px solid var(--color-teal);
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.athar-btn-teal:hover {
+  background-color: #347A73;
+  border-color: #347A73;
+}
+
+/* ==========================================================================
+   Floating WhatsApp Button (Disciplined, clean, 4px/circular without neon)
+   ========================================================================== */
+.athar-whatsapp-cta {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #25D366;
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+[dir="ltr"] .athar-whatsapp-cta {
+  right: auto;
+  left: 2rem;
+}
+
+.athar-whatsapp-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================================
+   Editorial Dual Arm Containers (Academy & Impact)
+   ========================================================================== */
+.arm-block-academy {
+  border: 1px solid rgba(215, 182, 120, 0.3);
+  border-radius: 4px;
+  padding: 3rem 2.5rem;
+  background: rgba(10, 24, 40, 0.75);
+  position: relative;
+}
+
+.arm-block-impact {
+  border: 1px solid rgba(62, 142, 135, 0.4);
+  border-radius: 4px;
+  padding: 3rem 2.5rem;
+  background: rgba(10, 28, 32, 0.75);
+  position: relative;
+}
+
+/* Hairline borders and dividers */
+.hairline-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(215, 182, 120, 0.2);
+  margin: 3.5rem 0;
+}
+
+.section-offwhite .hairline-divider {
+  background-color: rgba(16, 37, 61, 0.15);
+}
+
+/* Form Controls (4px max radius, clean hairlines, high contrast) */
+.athar-editorial-input {
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  background-color: rgba(10, 24, 40, 0.85);
+  border: 1px solid rgba(215, 182, 120, 0.45);
+  border-radius: 4px;
+  color: #FFFFFF !important;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.athar-editorial-input:focus {
+  border-color: #E5C78E !important;
+  box-shadow: 0 0 0 1px #E5C78E;
+}
+
+.athar-editorial-input::placeholder {
+  color: #94A3B8 !important;
+  opacity: 1;
+}
+
+.athar-editorial-input option {
+  background-color: #0A1828 !important;
+  color: #FFFFFF !important;
+  padding: 10px;
+}
+
+.section-offwhite .athar-editorial-input {
+  background-color: #FFFFFF !important;
+  border-color: rgba(16, 37, 61, 0.4) !important;
+  color: #10253D !important;
+  font-weight: 500;
+}
+
+.section-offwhite .athar-editorial-input:focus {
+  border-color: #10253D !important;
+  box-shadow: 0 0 0 1px #10253D;
+}
+
+.section-offwhite .athar-editorial-input::placeholder {
+  color: #64748B !important;
+  opacity: 1;
+}
+
+.section-offwhite .athar-editorial-input option {
+  background-color: #FFFFFF !important;
+  color: #10253D !important;
+}
+
+/* Explicit form labels (Always legible, robust, and correctly contrasted) */
+label, .athar-editorial-label {
+  font-family: var(--font-body), 'IBM Plex Sans Arabic', sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: normal !important;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.section-navy label, 
+.section-teal label,
+#atharModalContainer label {
+  color: #E5C78E !important;
+}
+
+.section-teal form label {
+  color: #5EC4BB !important;
+}
+
+.section-offwhite label {
+  color: #10253D !important;
+}
+
+/* ==========================================================================
+   Vertical Growing Roadmap Timeline
+   ========================================================================== */
+.timeline-vertical {
+  position: relative;
+  padding-right: 2.5rem;
+  margin: 3.5rem 0;
+}
+
+[dir="ltr"] .timeline-vertical {
+  padding-right: 0;
+  padding-left: 2.5rem;
+}
+
+.timeline-vertical::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background-color: rgba(215, 182, 120, 0.35);
+  right: 0;
+}
+
+[dir="ltr"] .timeline-vertical::before {
+  right: auto;
+  left: 0;
+}
+
+.timeline-node {
+  position: relative;
+  margin-bottom: 3.5rem;
+  transition: transform 0.4s ease;
+}
+
+.timeline-node:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0.35rem;
+  right: -2.5rem;
+  transform: translate(50%, 0);
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background-color: var(--color-navy);
+  border: 1.5px solid var(--color-gold);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease;
+}
+
+[dir="ltr"] .timeline-dot {
+  right: auto;
+  left: -2.5rem;
+  transform: translate(-50%, 0);
+}
+
+.timeline-node.in-view .timeline-dot {
+  transform: translate(50%, 0) scale(1.6);
+  background-color: var(--color-gold);
+  box-shadow: 0 0 12px rgba(215, 182, 120, 0.7);
+}
+
+[dir="ltr"] .timeline-node.in-view .timeline-dot {
+  transform: translate(-50%, 0) scale(1.6);
+  background-color: var(--color-gold);
+  box-shadow: 0 0 12px rgba(215, 182, 120, 0.7);
+}
+
+.timeline-stage-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* ==========================================================================
+   Universal High-Contrast Footer & Utility Safeguards
+   ========================================================================== */
+footer {
+  color: #F8FAFC !important;
+}
+
+footer p {
+  color: #CBD5E1 !important;
+}
+
+footer a {
+  color: #E2E8F0 !important;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: #E5C78E !important;
+}
+
+/* Modal text contrast */
+#atharModalContainer h3 {
+  color: #FFFFFF !important;
+}
+
+#atharModalContainer p {
+  color: #CBD5E1 !important;
+}
+
+#atharModalContainer label {
+  color: #E5C78E !important;
+}
+

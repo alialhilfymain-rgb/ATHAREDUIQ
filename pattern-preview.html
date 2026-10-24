@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أثر | ATHAR - Signature Concentric Arc Pattern (Isolated Component)</title>
+  
+  <!-- Fonts: Noto Kufi Arabic + IBM Plex Sans Arabic + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Montserrat:wght@500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       Reset & Custom Art Direction Foundations
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-navy: #10253D;
+      --color-gold: #D7B678;
+      --color-offwhite: #F5F4F0;
+      --color-slate: #566373;
+      --color-teal: #3E8E87;
+      --font-heading: 'Noto Kufi Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Montserrat', monospace;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: var(--font-body);
+      background-color: var(--color-navy);
+      color: var(--color-offwhite);
+      transition: background-color 0.4s ease, color 0.4s ease;
+      cursor: none; /* Custom desktop gold dot cursor */
+    }
+
+    /* Custom Desktop Gold Dot Cursor */
+    #atharCursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background-color: var(--color-gold);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+      box-shadow: 0 0 10px rgba(215, 182, 120, 0.6);
+    }
+
+    #atharCursorRing {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      border: 1px solid rgba(215, 182, 120, 0.45);
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+    }
+
+    /* Canvas full-bleed */
+    #patternCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      z-index: 1;
+    }
+
+    /* Subtle grain texture overlay on Navy mode */
+    .grain-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* ==========================================================================
+       Disciplined Editorial HUD & Controls (No glassmorphism, 4px corners)
+       ========================================================================== */
+    .editorial-hud {
+      position: relative;
+      z-index: 10;
+      padding: 2.5rem 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .interactive-element {
+      pointer-events: auto;
+    }
+
+    /* Header Bar */
+    .hud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(215, 182, 120, 0.2);
+      padding-bottom: 1.5rem;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .alif-mark {
+      width: 24px;
+      height: 48px;
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .brand-meta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-top: 0.25rem;
+    }
+
+    .hud-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid rgba(215, 182, 120, 0.3);
+      border-radius: 4px;
+      color: var(--color-gold);
+      letter-spacing: 0.05em;
+      background: rgba(16, 37, 61, 0.6);
+    }
+
+    /* Central Title Narrative */
+    .hud-center {
+      max-width: 820px;
+      padding: 2rem 0;
+    }
+
+    .section-numeral {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--color-gold);
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .headline-editorial {
+      font-family: var(--font-heading);
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+
+    .body-editorial {
+      font-size: clamp(1.125rem, 1.2vw, 1.25rem);
+      line-height: 1.9;
+      color: #C0CBD8;
+      max-width: 680px;
+      font-weight: 400;
+    }
+
+    /* Hairline Interaction Cue */
+    .interaction-hints {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: var(--color-slate);
+      border-top: 1px solid rgba(215, 182, 120, 0.15);
+      padding-top: 1.25rem;
+    }
+
+    .hint-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hint-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 9999px;
+      background-color: var(--color-gold);
+    }
+
+    /* Footer Control Strip */
+    .hud-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(215, 182, 120, 0.2);
+      padding-top: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Mode Switcher Tabs */
+    .mode-group {
+      display: inline-flex;
+      border: 1px solid rgba(215, 182, 120, 0.3);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      padding: 0.65rem 1.25rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .mode-btn:hover {
+      color: var(--color-gold);
+      background: rgba(215, 182, 120, 0.08);
+    }
+
+    .mode-btn.active {
+      background: var(--color-gold);
+      color: var(--color-navy);
+      font-weight: 700;
+    }
+
+    .toggle-btn {
+      background: transparent;
+      border: 1px solid rgba(215, 182, 120, 0.3);
+      color: var(--color-gold);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-weight: 600;
+    }
+
+    .toggle-btn:hover {
+      background: rgba(215, 182, 120, 0.15);
+      border-color: var(--color-gold);
+    }
+
+    /* Mode Overrides */
+    body.mode-offwhite {
+      background-color: var(--color-offwhite);
+      color: var(--color-navy);
+    }
+    body.mode-offwhite .hud-header {
+      border-color: rgba(16, 37, 61, 0.15);
+    }
+    body.mode-offwhite .hud-footer {
+      border-color: rgba(16, 37, 61, 0.15);
+    }
+    body.mode-offwhite .brand-meta {
+      color: var(--color-slate);
+    }
+    body.mode-offwhite .hud-badge {
+      border-color: rgba(16, 37, 61, 0.25);
+      color: var(--color-navy);
+      background: rgba(255, 255, 255, 0.8);
+    }
+    body.mode-offwhite .body-editorial {
+      color: var(--color-slate);
+    }
+    body.mode-offwhite .mode-group {
+      border-color: rgba(16, 37, 61, 0.25);
+    }
+    body.mode-offwhite .mode-btn {
+      color: var(--color-slate);
+    }
+    body.mode-offwhite .mode-btn.active {
+      background: var(--color-navy);
+      color: var(--color-offwhite);
+    }
+    body.mode-offwhite .toggle-btn {
+      border-color: rgba(16, 37, 61, 0.25);
+      color: var(--color-navy);
+    }
+    body.mode-offwhite #atharCursor {
+      background-color: var(--color-navy);
+      box-shadow: 0 0 10px rgba(16, 37, 61, 0.5);
+    }
+    body.mode-offwhite #atharCursorRing {
+      border-color: rgba(16, 37, 61, 0.4);
+    }
+
+    body.mode-teal {
+      background-color: #0B1C22;
+      color: #E6F3F2;
+    }
+    body.mode-teal .brand-meta {
+      color: var(--color-teal);
+    }
+    body.mode-teal .hud-badge {
+      border-color: rgba(62, 142, 135, 0.4);
+      color: #72C7BF;
+      background: rgba(11, 28, 34, 0.7);
+    }
+    body.mode-teal .section-numeral {
+      color: var(--color-teal);
+    }
+    body.mode-teal .mode-btn.active {
+      background: var(--color-teal);
+      color: #FFFFFF;
+    }
+    body.mode-teal #atharCursor {
+      background-color: #72C7BF;
+      box-shadow: 0 0 10px rgba(114, 199, 191, 0.8);
+    }
+    body.mode-teal #atharCursorRing {
+      border-color: rgba(114, 199, 191, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .editorial-hud {
+        padding: 1.5rem;
+      }
+      .hud-header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hud-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .interaction-hints {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      #atharCursor, #atharCursorRing {
+        display: none; /* Pointer only on desktop */
+      }
+      html, body {
+        cursor: auto;
+      }
+    }
+  </style>
+</head>
+<body class="mode-navy">
+
+  <!-- Custom Desktop Gold Dot Cursor -->
+  <div id="atharCursor"></div>
+  <div id="atharCursorRing"></div>
+
+  <!-- Full-bleed Interactive Concentric Arc Canvas -->
+  <canvas id="patternCanvas"></canvas>
+
+  <!-- Subtle Film Grain for Navy mode -->
+  <div class="grain-overlay"></div>
+
+  <!-- Disciplined Editorial Overlay -->
+  <main class="editorial-hud">
+    
+    <!-- Top Bar -->
+    <header class="hud-header interactive-element">
+      <div class="brand-block">
+        <!-- Geometric Alif Stem SVG Mark -->
+        <svg class="alif-mark" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="7" r="3" fill="#D7B678" />
+          <path d="M12 14 V42" stroke="#D7B678" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+        <div>
+          <h1 class="brand-title">أثر | ATHAR</h1>
+          <div class="brand-meta">A T H A R &nbsp;•&nbsp; B A S R A</div>
+        </div>
+      </div>
+
+      <div class="hud-badge">
+        ISOLATED PATTERN COMPONENT &nbsp;•&nbsp; 60 FPS
+      </div>
+    </header>
+
+    <!-- Center Editorial Statement -->
+    <section class="hud-center">
+      <span class="section-numeral">01 / SIGNATURE GEOMETRY</span>
+      <h2 class="headline-editorial">
+        «أثر: هو ما يبقى بعد أن ينتهي الفعل»
+      </h2>
+      <p class="body-editorial">
+        نمط هندسي إسلامي معاصر مستوحى من أقواس الشعار وتمدد أمواج الأثر المعرفي. يدور بزوايا 90 و180 درجة ليلتقي في خطوط متصلة لا تنتهي.
+      </p>
+
+      <div class="interaction-hints">
+        <div class="hint-item">
+          <span class="hint-dot"></span>
+          <span><strong>تحريك المؤشر / اللمس:</strong> انتفاخ وتوهج ذهبي فوري للأقواس القريبة</span>
+        </div>
+        <div class="hint-item">
+          <span class="hint-dot"></span>
+          <span><strong>النقر / الضغط:</strong> إطلاق موجة صدى كروية متسعة في فضاء الشبكة</span>
+        </div>
+        <div class="hint-item">
+          <span class="hint-dot"></span>
+          <span><strong>دورة النبض البطيئة:</strong> أمواج متدرجة تمتد بين 14 و 20 ثانية</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Controls Strip -->
+    <footer class="hud-footer interactive-element">
+      <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--color-slate);">
+          COLOR VARIANT:
+        </span>
+        <div class="mode-group" role="tablist">
+          <button class="mode-btn active" data-mode="navy">01 / NAVY #10253D (10-25% GOLD)</button>
+          <button class="mode-btn" data-mode="offwhite">02 / OFF-WHITE #F5F4F0 (6-10% NAVY)</button>
+          <button class="mode-btn" data-mode="teal">03 / ATHAR IMPACT #3E8E87 (TEAL)</button>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <button id="toggleMotionBtn" class="toggle-btn">
+          ⏸ إيقاف الحركة مؤقتاً
+        </button>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Load Isolated Engine Script -->
+  <script src="pattern-background.js"></script>
+
+  <script>
+    // 1. Initialize Pattern Engine
+    const canvas = document.getElementById('patternCanvas');
+    const engine = new AtharPatternBackground(canvas, {
+      mode: 'navy',
+      interactive: true,
+      animated: true
+    });
+
+    // 2. Custom Gold Dot Cursor for Desktop
+    const cursorDot = document.getElementById('atharCursor');
+    const cursorRing = document.getElementById('atharCursorRing');
+    let ringX = -100, ringY = -100;
+    let targetX = -100, targetY = -100;
+
+    window.addEventListener('mousemove', (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      cursorDot.style.left = targetX + 'px';
+      cursorDot.style.top = targetY + 'px';
+    });
+
+    function updateCursorRing() {
+      ringX += (targetX - ringX) * 0.18;
+      ringY += (targetY - ringY) * 0.18;
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top = ringY + 'px';
+      requestAnimationFrame(updateCursorRing);
+    }
+    requestAnimationFrame(updateCursorRing);
+
+    // Enlarge cursor on interactive elements
+    document.querySelectorAll('button, a').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorRing.style.width = '48px';
+        cursorRing.style.height = '48px';
+        cursorDot.style.width = '12px';
+        cursorDot.style.height = '12px';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorRing.style.width = '32px';
+        cursorRing.style.height = '32px';
+        cursorDot.style.width = '8px';
+        cursorDot.style.height = '8px';
+      });
+    });
+
+    // 3. Mode Switcher (Navy / Off-White / Impact Teal)
+    const modeButtons = document.querySelectorAll('.mode-btn');
+    modeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const mode = btn.getAttribute('data-mode');
+        
+        document.body.className = `mode-${mode}`;
+        engine.setMode(mode);
+      });
+    });
+
+    // 4. Toggle Animation Button
+    const toggleMotionBtn = document.getElementById('toggleMotionBtn');
+    let isMotionPlaying = true;
+    toggleMotionBtn.addEventListener('click', () => {
+      isMotionPlaying = !isMotionPlaying;
+      if (isMotionPlaying) {
+        engine.start();
+        toggleMotionBtn.textContent = '⏸ إيقاف الحركة مؤقتاً';
+      } else {
+        engine.renderStatic();
+        toggleMotionBtn.textContent = '▶ استئناف الحركة الدورية';
+      }
+    });
+  </script>
+</body>
+</html>

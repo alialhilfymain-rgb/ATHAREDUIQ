@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أثر | ATHAR - نعلّم اليوم، لنصنع أثر الغد</title>
+  
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="مشروع أثر للتعليم والتطوير - صرح عراقي ينطلق من البصرة، يجمع بين التدريب المهني المتقدم في أكاديمية أثر والورش المجتمعية المجانية لمدارس وجامعات العراق.">
+  <meta name="keywords" content="أثر, ATHAR, تعليم, تدريب, البصرة, العراق, أكاديمية أثر, أثر المجتمعية, ذكاء اصطناعي, مهارات رقمية">
+  <meta property="og:title" content="أثر | ATHAR - نعلّم اليوم، لنصنع أثر الغد">
+  <meta property="og:description" content="مشروع عراقي في التعليم والتطوير المهني، ينطلق من البصرة ليحول المهارة إلى فرصة ويبقى الأثر.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo-emblem-dark-bg.svg">
+
+  <!-- Fonts: Noto Kufi Arabic + IBM Plex Sans Arabic + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Montserrat:wght@500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            athar: {
+              navy: '#10253D',
+              'navy-dark': '#0A1828',
+              gold: '#D7B678',
+              offwhite: '#F5F4F0',
+              slate: '#566373',
+              teal: '#3E8E87',
+              'teal-dark': '#1E4D48'
+            }
+          },
+          fontFamily: {
+            heading: ['"Noto Kufi Arabic"', 'sans-serif'],
+            body: ['"IBM Plex Sans Arabic"', 'sans-serif'],
+            mono: ['"Montserrat"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Editorial Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-athar-navy text-athar-offwhite antialiased selection:bg-athar-gold selection:text-athar-navy">
+
+  <!-- Custom Desktop Gold Dot Cursor -->
+  <div id="atharCursor"></div>
+  <div id="atharCursorRing"></div>
+
+  <!-- ==================== EDITORIAL HEADER ==================== -->
+  <header class="sticky top-0 z-50 w-full bg-athar-navy/95 border-b border-athar-gold/20 backdrop-blur-md transition-all">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+      
+      <!-- Brand Logotype (Asymmetric, disciplined) -->
+      <a href="index.html" class="flex items-center gap-4 group">
+        <svg class="w-6 h-12 text-athar-gold" viewBox="0 0 24 48" fill="none">
+          <circle cx="12" cy="7" r="3.5" fill="#D7B678" />
+          <path d="M12 15 V42" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+          <path d="M4 42 C 4 28, 20 28, 20 42" stroke="#D7B678" stroke-width="1.8" stroke-linecap="round" fill="none" />
+        </svg>
+        <div class="flex flex-col">
+          <span class="text-2xl font-bold tracking-tight text-white font-heading" data-i18n="nav_brand">أثر</span>
+          <span class="meta-mono text-xs text-athar-gold" data-i18n="nav_brand_en">A T H A R &nbsp;•&nbsp; B A S R A</span>
+        </div>
+      </a>
+
+      <!-- Desktop Editorial Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="index.html" data-nav-item="home" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_home">الرئيسية</a>
+        <a href="about.html" data-nav-item="about" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_about">من نحن</a>
+        <a href="academy.html" data-nav-item="academy" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_academy">أكاديمية أثر</a>
+        <a href="impact.html" data-nav-item="impact" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_impact">أثر المجتمعية</a>
+        <a href="partnerships.html" data-nav-item="partnerships" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_partnerships">الشراكات</a>
+        <a href="volunteer.html" data-nav-item="volunteer" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_volunteer">التطوع</a>
+        <a href="contact.html" data-nav-item="contact" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_contact">تواصل معنا</a>
+      </nav>
+
+      <!-- Action Group -->
+      <div class="hidden sm:flex items-center gap-4">
+        <!-- Language Switcher -->
+        <button id="langToggleBtn" class="px-4 py-2 rounded-[4px] border border-athar-gold/30 text-xs font-mono font-semibold text-athar-gold hover:bg-athar-gold/10 transition-colors">
+          <span>English</span>
+        </button>
+        <!-- Primary Action -->
+        <button data-open-modal="workshop" class="athar-btn-primary text-xs font-heading font-bold !py-2.5 !px-5">
+          <span data-i18n="nav_cta_workshop">طلب ورشة مجانية</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-white border border-white/20 rounded-[4px]" aria-label="القائمة">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/85 z-50 hidden opacity-0 transition-opacity"></div>
+  <aside id="mobileMenuDrawer" class="fixed top-0 bottom-0 right-0 w-80 bg-athar-navy z-50 p-8 flex flex-col justify-between translate-x-full transition-transform duration-300 border-s border-athar-gold/25">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <span class="font-heading font-bold text-xl text-white">أثر | ATHAR</span>
+        <button id="mobileMenuCloseBtn" class="text-gray-400 hover:text-white text-2xl font-mono">&times;</button>
+      </div>
+      <nav class="mt-8 flex flex-col gap-4 text-base font-medium text-gray-300">
+        <a href="index.html" data-nav-item="home" class="py-2 hover:text-athar-gold" data-i18n="nav_home">الرئيسية</a>
+        <a href="about.html" data-nav-item="about" class="py-2 hover:text-athar-gold" data-i18n="nav_about">من نحن</a>
+        <a href="academy.html" data-nav-item="academy" class="py-2 hover:text-athar-gold" data-i18n="nav_academy">أكاديمية أثر</a>
+        <a href="impact.html" data-nav-item="impact" class="py-2 hover:text-athar-gold" data-i18n="nav_impact">أثر المجتمعية</a>
+        <a href="partnerships.html" data-nav-item="partnerships" class="py-2 hover:text-athar-gold" data-i18n="nav_partnerships">الشراكات</a>
+        <a href="volunteer.html" data-nav-item="volunteer" class="py-2 hover:text-athar-gold" data-i18n="nav_volunteer">التطوع</a>
+        <a href="contact.html" data-nav-item="contact" class="py-2 hover:text-athar-gold" data-i18n="nav_contact">تواصل معنا</a>
+      </nav>
+    </div>
+    <div class="pt-6 border-t border-white/10 space-y-3">
+      <button id="langToggleBtnMobile" class="w-full py-2.5 rounded-[4px] border border-athar-gold/40 text-xs font-mono font-semibold text-athar-gold">
+        <span>English</span>
+      </button>
+      <button data-open-modal="workshop" class="w-full athar-btn-primary text-xs font-heading font-bold !py-3">
+        <span data-i18n="nav_cta_workshop">طلب ورشة مجانية</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==================== HERO SECTION (Full-bleed Navy with Rising Alif Stem) ==================== -->
+  <section class="section-navy pt-16 pb-28 md:pt-24 md:pb-40">
+    <!-- Signature Background Canvas (Navy & Gold Mode) -->
+    <canvas id="heroPatternCanvas" class="background-canvas-layer"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      <div class="max-w-4xl">
+
+        <!-- Section Identifier -->
+        <span class="section-numeral-tag" data-i18n="hero_badge">00 / مشروع أثر للتعليم والتطوير — البصرة</span>
+
+        <!-- Word-by-Word Revealed Headline -->
+        <h1 id="heroHeadline" 
+            class="display-title font-heading text-white mb-8" 
+            data-ar="نعلّم اليوم، لنصنع أثر الغد"
+            data-en="Knowledge That Leaves a Mark">
+          نعلّم اليوم، لنصنع أثر الغد
+        </h1>
+
+        <!-- Subtitle Narrative (Calm, Disciplined, Generous Whitespace) -->
+        <p class="body-lead text-gray-300 max-w-2xl mb-12" data-i18n="hero_description">
+          مشروع عراقي في التعليم والتطوير المهني، ينطلق من البصرة ويسعى لأن تبقى المعرفة في عقل المتعلم وتتحول المهارة إلى فرصة حقيقية ومستدامة.
+        </p>
+
+        <!-- Editorial Action Triggers -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-5">
+          <a href="academy.html" class="athar-btn-primary">
+            <span data-i18n="hero_cta_academy">استكشف برامج الأكاديمية</span>
+          </a>
+          <a href="impact.html" class="athar-btn-secondary">
+            <span data-i18n="hero_cta_impact">أثر المجتمعية وورش المدارس</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 01: PHILOSOPHY (Full-bleed Off-White) ==================== -->
+  <section class="section-offwhite py-24 md:py-36">
+    <!-- Signature Background Canvas (Off-White & Navy Mode) -->
+    <canvas id="offwhitePatternCanvas" class="background-canvas-layer"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-baseline">
+        
+        <!-- Left Column: Numeral & Identity -->
+        <div class="lg:col-span-4">
+          <span class="section-numeral-tag" data-i18n="phil_tag">01 / فلسفة الاسم والرؤية</span>
+          <h2 class="h2-title text-athar-navy" data-i18n="phil_title">لماذا «أثر»؟</h2>
+        </div>
+
+        <!-- Right Column: Massive Quote & Statement -->
+        <div class="lg:col-span-8">
+          <blockquote class="h1-title text-athar-navy leading-tight mb-8 font-heading" data-i18n="phil_quote">
+            «أثر: هو ما يبقى بعد أن ينتهي الفعل.»
+          </blockquote>
+
+          <p class="body-lead text-athar-slate mb-6" data-i18n="phil_text">
+            نريد أن تبقى المعرفة راسخة في عقل المتعلم، وأن تتحول المهارة إلى فرصة عملية تفتح آفاق العمل، وأن يترك كل إنسان نساعده أثراً ممتداً في مجتمعه ووطنه.
+          </p>
+
+          <p class="text-sm text-slate-800 border-s-2 border-athar-navy pe-4 ps-4 my-8 font-medium">
+            المشروع حالياً في مرحلة التأسيس، ويبدأ بالمبادرات التطوعية المجتمعية والورش التدريبية والشراكات مع المدارس والجامعات.
+          </p>
+
+          <a href="about.html" class="athar-btn-secondary !text-athar-navy !border-athar-navy inline-flex">
+            <span>اقرأ قصة التأسيس ومسار النمو الكامل</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 02: THE TWO ARMS (Full-bleed Navy) ==================== -->
+  <section class="section-navy py-24 md:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-16">
+        <span class="section-numeral-tag" data-i18n="arms_badge">02 / الهيكل المؤسسي</span>
+        <h2 class="h1-title text-white mb-4" data-i18n="arms_title">ذراعان لهدف واحد</h2>
+        <p class="body-lead text-gray-300" data-i18n="arms_desc">
+          تتكامل رسالة أثر من خلال مسارين متوازيين: مسار للتدريب المهني الاحترافي، ومسار للمسؤولية المجتمعية الحرة.
+        </p>
+      </div>
+
+      <!-- Asymmetric Editorial Grid for the Two Arms -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Arm 1: ATHAR ACADEMY (Navy & Gold Accent) -->
+        <div class="lg:col-span-6 arm-block-academy flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-athar-gold/20">
+              <span class="meta-mono text-xs text-athar-gold" data-i18n="academy_en">ATHAR ACADEMY</span>
+              <span class="text-xs font-semibold text-gray-300">تدريب مدفوع ومتقدم</span>
+            </div>
+
+            <h3 class="h2-title text-white mb-4" data-i18n="academy_title">أكاديمية أثر</h3>
+            
+            <p class="body-lead text-gray-200 mb-8" data-i18n="academy_desc">
+              برامج ودورات تدريبية مدفوعة تهدف لتطوير الكفاءات ورفع جاهزية الشباب لسوق العمل عبر مناهج تطبيقية يقدمها نخبة من المدربين.
+            </p>
+
+            <div class="border-t border-white/10 pt-4 mb-8 space-y-2 text-sm text-gray-200 font-medium">
+              <div>• تكنولوجيا المعلومات والذكاء الاصطناعي</div>
+              <div>• الإدارة والمهارات الرقمية وسوق العمل</div>
+              <div>• شهادات مشاركة وحضور صادرة رسمياً عن أثر</div>
+            </div>
+          </div>
+
+          <a href="academy.html" class="athar-btn-primary w-full text-center">
+            <span data-i18n="academy_cta">عرض برامج الأكاديمية والتسجيل</span>
+          </a>
+        </div>
+
+        <!-- Arm 2: ATHAR IMPACT (Teal Accent #3E8E87) -->
+        <div class="lg:col-span-6 arm-block-impact flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-athar-teal/30">
+              <span class="meta-mono text-xs text-athar-teal" data-i18n="impact_en">ATHAR IMPACT</span>
+              <span class="text-xs font-semibold text-teal-300">100% ورش مجانية</span>
+            </div>
+
+            <h3 class="h2-title text-white mb-4" data-i18n="impact_title">أثر المجتمعية</h3>
+            
+            <p class="body-lead text-gray-200 mb-8" data-i18n="impact_desc">
+              ورش تعليمية وتوعوية مجانية بالكامل داخل المدارس والمؤسسات التعليمية، لنشر المعرفة الرقمية دون أي اشتراط تجاري أو رسوم.
+            </p>
+
+            <!-- Non-Commercial Guarantee Notice -->
+            <div class="border-t border-athar-teal/30 pt-4 mb-8 space-y-2 text-sm text-teal-200 font-medium">
+              <div>✓ مخصصة لطلبة المدارس والجامعات في البصرة</div>
+              <div>✓ دون أي تكلفة مالية على المدرسة أو الطلبة</div>
+              <div>✓ ضمان عدم إلزام الطلبة بأي دورات تجارية مدفوعة</div>
+            </div>
+          </div>
+
+          <a href="impact.html" class="athar-btn-teal w-full text-center">
+            <span data-i18n="impact_cta">طلب تنظيم ورشة لمدرستك / كليتك</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 03: THE 7 CORE FIELDS (Full-bleed Off-White with Hairline-Ruled List) ==================== -->
+  <section class="section-offwhite py-24 md:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+        <div class="lg:col-span-5">
+          <span class="section-numeral-tag" data-i18n="fields_badge">03 / مسارات التعلم والتطوير</span>
+          <h2 class="h1-title text-athar-navy" data-i18n="fields_title">في ماذا نعلّم؟</h2>
+        </div>
+        <div class="lg:col-span-7 flex items-end">
+          <p class="body-lead text-athar-slate" data-i18n="fields_subtitle">
+            سبعة مجالات حيوية صُممت لتلبي احتياجات العصر وتمكين الأجيال القادمة من المهارات العملية المطلوبة.
+          </p>
+        </div>
+      </div>
+
+      <!-- Hairline-Ruled List with Large Numerals (01 - 07) - NO generic icon cards! -->
+      <div class="hairline-ruled-list">
+        
+        <!-- Field 01 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">01</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-athar-navy" data-i18n="field_1_title">تكنولوجيا المعلومات</h3>
+            <p data-i18n="field_1_desc">البرمجة، تطوير الويب، الشبكات، والأنظمة السحابية المعاصرة.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-slate hidden sm:inline-block">IT & SYSTEMS</span>
+        </div>
+
+        <!-- Field 02 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">02</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-athar-navy" data-i18n="field_2_title">الذكاء الاصطناعي</h3>
+            <p data-i18n="field_2_desc">أدوات الذكاء الاصطناعي التوليدي، وتطبيقاته في العمل والتعليم وصناعة المحتوى.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-slate hidden sm:inline-block">ARTIFICIAL INTELLIGENCE</span>
+        </div>
+
+        <!-- Field 03 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">03</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-athar-navy" data-i18n="field_3_title">المهارات الرقمية</h3>
+            <p data-i18n="field_3_desc">التصميم، صناعة المحتوى، وإتقان أدوات الإنتاجية الحديثة والعمل المشترك.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-slate hidden sm:inline-block">DIGITAL SKILLS</span>
+        </div>
+
+        <!-- Field 04 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">04</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-athar-navy" data-i18n="field_4_title">الإدارة</h3>
+            <p data-i18n="field_4_desc">إدارة المشاريع الحديثة، القيادة التنفيذية، والتخطيط الاستراتيجي الفعال.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-slate hidden sm:inline-block">MANAGEMENT</span>
+        </div>
+
+        <!-- Field 05 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">05</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-athar-navy" data-i18n="field_5_title">الموارد البشرية</h3>
+            <p data-i18n="field_5_desc">استقطاب المواهب، إدارة الأداء، وتطوير بيئات العمل المؤسسية المحفزة.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-slate hidden sm:inline-block">HUMAN RESOURCES</span>
+        </div>
+
+        <!-- Field 06 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">06</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-athar-navy" data-i18n="field_6_title">اللغات</h3>
+            <p data-i18n="field_6_desc">الإنجليزية المهنية والتواصل العملي لكسر حواجز الفرص العالمية.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-slate hidden sm:inline-block">LANGUAGES</span>
+        </div>
+
+        <!-- Field 07 -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">07</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-athar-navy" data-i18n="field_7_title">مهارات سوق العمل</h3>
+            <p data-i18n="field_7_desc">كتابة السير الذاتية، اجتياز المقابلات، والتفاوض وحل المشكلات لتمكين الخريجين.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-slate hidden sm:inline-block">CAREER READINESS</span>
+        </div>
+
+      </div>
+
+      <!-- Bottom Nav Trigger -->
+      <div class="mt-12 text-end">
+        <a href="academy.html" class="athar-btn-secondary !text-athar-navy !border-athar-navy inline-flex">
+          <span>استعراض كافة تفاصيل البرامج التدريبية والتسجيل</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 04: PARTNERSHIP PROCESS (Full-bleed Navy) ==================== -->
+  <section class="section-navy py-24 md:py-36">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-16">
+        <span class="section-numeral-tag" data-i18n="process_badge">04 / آلية التعاون</span>
+        <h2 class="h1-title text-white mb-4" data-i18n="process_title">كيف تتم الشراكة معنا؟</h2>
+        <p class="body-lead text-gray-300" data-i18n="process_subtitle">
+          أربع خطوات واضحة وميسرة لبناء شراكة تعليمية تثمر أثراً ملموساً داخل مدرستكم أو كليتكم.
+        </p>
+      </div>
+
+      <!-- Hairline Process Matrix (01 - 04) -->
+      <div class="hairline-ruled-list">
+        
+        <div class="hairline-item">
+          <span class="hairline-numeral">01</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-white" data-i18n="step_1_title">تواصل أولي وتعريف بالاحتياج</h3>
+            <p data-i18n="step_1_desc">استقبال رغبة الجهة الشريكة واستكشاف مجالات الاهتمام والفئة المستهدفة من الطلبة.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-gold hidden sm:inline-block">INITIAL CONTACT</span>
+        </div>
+
+        <div class="hairline-item">
+          <span class="hairline-numeral">02</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-white" data-i18n="step_2_title">الاتفاق على الموضوع والموعد</h3>
+            <p data-i18n="step_2_desc">تحديد المحتوى التدريبي الملائم والجدول الزمني المناسب لإقامة الورشة داخل المؤسسة.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-gold hidden sm:inline-block">CURRICULUM & DATE</span>
+        </div>
+
+        <div class="hairline-item">
+          <span class="hairline-numeral">03</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-white" data-i18n="step_3_title">تنفيذ الورشة أو البرنامج</h3>
+            <p data-i18n="step_3_desc">يقوم فريق مدربي أثر بتقديم الورشة بأعلى معايير التفاعل والتطبيق العملي المباشر.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-gold hidden sm:inline-block">EXECUTION</span>
+        </div>
+
+        <div class="hairline-item">
+          <span class="hairline-numeral">04</span>
+          <div class="hairline-content">
+            <h3 class="font-heading text-white" data-i18n="step_4_title">تقرير موجز وشهادات الأثر</h3>
+            <p data-i18n="step_4_desc">تسليم شهادات حضور للمشاركين وتزويد إدارة المؤسسة بتقرير عن نتائج وانطباعات الورشة.</p>
+          </div>
+          <span class="meta-mono text-xs text-athar-gold hidden sm:inline-block">IMPACT REPORT</span>
+        </div>
+
+      </div>
+
+      <div class="mt-12">
+        <a href="partnerships.html" class="athar-btn-secondary inline-flex">
+          <span>دليل الشراكات المخصص للمدارس والجامعات والشركات</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 05: CONNECT & ACTION BANNER ==================== -->
+  <section class="section-offwhite py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-8">
+          <span class="section-numeral-tag">05 / المبادرة والمشاركة</span>
+          <h2 class="h1-title text-athar-navy mb-4" data-i18n="vol_title">كن جزءاً من الأثر</h2>
+          <p class="body-lead text-athar-slate mb-6" data-i18n="vol_desc">
+            سواء كنت إدارة مدرسة تبحث عن ورشة مجانية، أو طالباً يسعى لتطوير مهاراته، أو كفاءة ترغب بالتطوع؛ أثر تفتح أبوابها لك في البصرة.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4">
+          <a href="volunteer.html" class="athar-btn-primary text-center">
+            <span data-i18n="vol_btn">سجل كمتطوع في فريقنا</span>
+          </a>
+          <a href="contact.html" class="athar-btn-secondary !text-athar-navy !border-athar-navy text-center">
+            <span data-i18n="nav_contact">تواصل معنا مباشرة</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== EDITORIAL FOOTER ==================== -->
+  <footer class="bg-athar-navy-dark text-white pt-20 pb-16 border-t border-athar-gold/20 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+        
+        <!-- Brand Narrative Column -->
+        <div class="md:col-span-5 space-y-6">
+          <div class="flex items-center gap-3">
+            <span class="font-heading font-bold text-2xl text-white">أثر | ATHAR</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed max-w-sm" data-i18n="footer_tagline">
+            نعلّم اليوم، لنصنع أثر الغد. مشروع عراقي رائد ينطلق من البصرة لتمكين الأجيال القادمة وبناء قدرات الشباب.
+          </p>
+          <div class="meta-mono text-xs text-athar-gold space-y-1">
+            <div>HQ: BASRA — IRAQ</div>
+            <div>TEL: 07727437144</div>
+            <div>IG: @ATHAREDU.IQ</div>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="md:col-span-3 space-y-3">
+          <span class="meta-mono text-xs text-athar-gold block mb-4">PAGES / الصفحات</span>
+          <ul class="space-y-2 text-sm text-gray-400 font-medium">
+            <li><a href="index.html" class="hover:text-athar-gold transition-colors">الرئيسية</a></li>
+            <li><a href="about.html" class="hover:text-athar-gold transition-colors">من نحن والفلسفة</a></li>
+            <li><a href="academy.html" class="hover:text-athar-gold transition-colors">أكاديمية أثر</a></li>
+            <li><a href="impact.html" class="hover:text-athar-gold transition-colors">أثر المجتمعية</a></li>
+            <li><a href="partnerships.html" class="hover:text-athar-gold transition-colors">الشراكات المؤسسية</a></li>
+            <li><a href="volunteer.html" class="hover:text-athar-gold transition-colors">فريق التطوع</a></li>
+            <li><a href="contact.html" class="hover:text-athar-gold transition-colors">تواصل معنا</a></li>
+          </ul>
+        </div>
+
+        <!-- 7 Fields Reference -->
+        <div class="md:col-span-4 space-y-3">
+          <span class="meta-mono text-xs text-athar-gold block mb-4">DISCIPLINES / المجالات</span>
+          <div class="space-y-1.5 text-xs text-gray-400 font-mono">
+            <div>01. تكنولوجيا المعلومات والبرمجة</div>
+            <div>02. الذكاء الاصطناعي والتوليدي</div>
+            <div>03. المهارات الرقمية والتصميم</div>
+            <div>04. الإدارة والمشاريع المعاصرة</div>
+            <div>05. الموارد البشرية وتطوير الأداء</div>
+            <div>06. اللغات والتواصل المهني</div>
+            <div>07. مهارات سوق العمل والجاهزية</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legal & Accreditation Transparency Notice -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-mono">
+        <p>جميع الحقوق محفوظة © 2026 مشروع أثر للتعليم والتطوير (ATHAR)</p>
+        <p class="text-gray-400 max-w-xl text-center md:text-end">
+          تنويه: المشروع في مرحلة التأسيس من البصرة، والشهادات الممنوحة في الورش التدريبية هي شهادات حضور ومشاركة تصدر عن أثر.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING WHATSAPP CTA ==================== -->
+  <button data-whatsapp-action class="athar-whatsapp-cta" aria-label="واتساب مباشر">
+    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/></svg>
+    <span>07727437144</span>
+  </button>
+
+  <!-- ==================== UNIFIED APPLICATION MODAL ==================== -->
+  <div id="atharModalContainer" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+    <div id="atharModalBackdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm"></div>
+    
+    <div class="relative bg-athar-navy-dark rounded-[4px] border border-athar-gold/30 max-w-lg w-full p-8 shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
+      <button id="atharModalCloseBtn" class="absolute top-5 end-5 text-gray-400 hover:text-white font-mono text-2xl">&times;</button>
+
+      <div class="mb-6">
+        <span class="meta-mono text-xs text-athar-gold block mb-1">ATHAR | أثر للتعليم والتطوير</span>
+        <h3 id="modalTitle" class="h3-title text-white">طلب ورشة مجانية لمدرستك أو كليتك</h3>
+        <p id="modalDesc" class="text-xs text-gray-400 mt-1 leading-relaxed">
+          ورش أثر المجتمعية مجانية بالكامل وتهدف لنشر الثقافة الرقمية دون أي مقابل مالي أو شروط تجارية.
+        </p>
+      </div>
+
+      <div id="modalSuccessState" class="hidden p-4 rounded-[4px] bg-emerald-900/30 border border-emerald-500/40 text-center my-4">
+        <h4 class="font-heading font-bold text-white text-base mb-1">تم استلام طلبكم بنجاح</h4>
+        <p class="text-xs text-gray-300">شكراً لاهتمامك بمشروع أثر. سيقوم فريقنا بالتواصل معكم في أقرب وقت للتنسيق.</p>
+      </div>
+
+      <form id="atharModalForm" class="space-y-4">
+        <input type="hidden" id="modalFormType" value="طلب ورشة مجانية">
+
+        <div>
+          <label class="block text-sm font-semibold text-athar-gold mb-1">الاسم الكامل *</label>
+          <input type="text" id="inputName" required placeholder="الاسم الثلاثي أو اللقب" class="athar-editorial-input">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-athar-gold mb-1">رقم الهاتف / واتساب *</label>
+          <input type="tel" id="inputPhone" required placeholder="077XXXXXXXX" class="athar-editorial-input font-mono">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-athar-gold mb-1">اسم المؤسسة أو المدرسة / التخصص</label>
+          <input type="text" id="inputInstitution" placeholder="مثال: إعدادية البصرة للبنين / كلية الهندسة" class="athar-editorial-input">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-athar-gold mb-1">البريد الإلكتروني (اختياري)</label>
+          <input type="email" id="inputEmail" placeholder="example@email.com" class="athar-editorial-input font-mono">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-athar-gold mb-1">ملاحظات أو تفاصيل إضافية</label>
+          <textarea id="inputNotes" rows="3" placeholder="حدد التاريخ المقترح، عدد الحضور المتوقع، أو نوع الورشة..." class="athar-editorial-input resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="athar-btn-primary w-full mt-2">
+          <span>إرسال الطلب الآن</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="pattern-background.js"></script>
+  <script src="translations.js"></script>
+  <script src="main.js"></script>
+
+  <script>
+    // Initialize Signature Concentric Arc Tessellation for Hero (Mode 1: Navy & Gold)
+    const heroCanvas = document.getElementById('heroPatternCanvas');
+    if (heroCanvas) {
+      new AtharPatternBackground(heroCanvas, {
+        mode: 'navy',
+        interactive: true,
+        animated: true
+      });
+    }
+
+    // Initialize Signature Concentric Arc Tessellation for Section 01 (Mode 2: Off-White & Navy)
+    const offwhiteCanvas = document.getElementById('offwhitePatternCanvas');
+    if (offwhiteCanvas) {
+      new AtharPatternBackground(offwhiteCanvas, {
+        mode: 'offwhite',
+        interactive: true,
+        animated: true
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل معنا | ATHAR - أثر للتعليم والتطوير</title>
+  
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="تواصل مع إدارة وفريق مشروع أثر للتعليم والتطوير في البصرة. هاتف وواتساب: 07727437144، إنستغرام: @atharedu.iq.">
+  <meta property="og:title" content="تواصل معنا | ATHAR">
+  <meta property="og:description" content="قنوات الاتصال المباشرة وفريق الدعم والتنسيق لمشروع أثر.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo-emblem-dark-bg.svg">
+
+  <!-- Fonts: Noto Kufi Arabic + IBM Plex Sans Arabic + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Montserrat:wght@500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            athar: {
+              navy: '#10253D',
+              'navy-dark': '#0A1828',
+              gold: '#D7B678',
+              offwhite: '#F5F4F0',
+              slate: '#566373',
+              teal: '#3E8E87',
+              'teal-dark': '#1E4D48'
+            }
+          },
+          fontFamily: {
+            heading: ['"Noto Kufi Arabic"', 'sans-serif'],
+            body: ['"IBM Plex Sans Arabic"', 'sans-serif'],
+            mono: ['"Montserrat"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Editorial Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-athar-navy text-athar-offwhite antialiased selection:bg-athar-gold selection:text-athar-navy">
+
+  <!-- Custom Desktop Gold Dot Cursor -->
+  <div id="atharCursor"></div>
+  <div id="atharCursorRing"></div>
+
+  <!-- ==================== EDITORIAL HEADER ==================== -->
+  <header class="sticky top-0 z-50 w-full bg-athar-navy/95 border-b border-athar-gold/20 backdrop-blur-md transition-all">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+      
+      <!-- Brand Logotype -->
+      <a href="index.html" class="flex items-center gap-4 group">
+        <svg class="w-6 h-12 text-athar-gold" viewBox="0 0 24 48" fill="none">
+          <circle cx="12" cy="7" r="3.5" fill="#D7B678" />
+          <path d="M12 15 V42" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+          <path d="M4 42 C 4 28, 20 28, 20 42" stroke="#D7B678" stroke-width="1.8" stroke-linecap="round" fill="none" />
+        </svg>
+        <div class="flex flex-col">
+          <span class="text-2xl font-bold tracking-tight text-white font-heading" data-i18n="nav_brand">أثر</span>
+          <span class="meta-mono text-xs text-athar-gold" data-i18n="nav_brand_en">A T H A R &nbsp;•&nbsp; B A S R A</span>
+        </div>
+      </a>
+
+      <!-- Desktop Editorial Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="index.html" data-nav-item="home" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_home">الرئيسية</a>
+        <a href="about.html" data-nav-item="about" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_about">من نحن</a>
+        <a href="academy.html" data-nav-item="academy" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_academy">أكاديمية أثر</a>
+        <a href="impact.html" data-nav-item="impact" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_impact">أثر المجتمعية</a>
+        <a href="partnerships.html" data-nav-item="partnerships" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_partnerships">الشراكات</a>
+        <a href="volunteer.html" data-nav-item="volunteer" class="hover:text-athar-gold transition-colors py-1" data-i18n="nav_volunteer">التطوع</a>
+        <a href="contact.html" data-nav-item="contact" class="hover:text-athar-gold transition-colors py-1 text-athar-gold" data-i18n="nav_contact">تواصل معنا</a>
+      </nav>
+
+      <!-- Action Group -->
+      <div class="hidden sm:flex items-center gap-4">
+        <button id="langToggleBtn" class="px-4 py-2 rounded-[4px] border border-athar-gold/30 text-xs font-mono font-semibold text-athar-gold hover:bg-athar-gold/10 transition-colors">
+          <span>English</span>
+        </button>
+        <a href="https://wa.me/9647727437144" target="_blank" rel="noopener noreferrer" class="athar-btn-primary text-xs font-heading font-bold !py-2.5 !px-5">
+          <span data-i18n="contact_cta_whatsapp">محادثة فورية عبر واتساب</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 text-white border border-white/20 rounded-[4px]" aria-label="القائمة">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileMenuBackdrop" class="fixed inset-0 bg-black/85 z-50 hidden opacity-0 transition-opacity"></div>
+  <aside id="mobileMenuDrawer" class="fixed top-0 bottom-0 right-0 w-80 bg-athar-navy z-50 p-8 flex flex-col justify-between translate-x-full transition-transform duration-300 border-s border-athar-gold/25">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <span class="font-heading font-bold text-xl text-white">أثر | ATHAR</span>
+        <button id="mobileMenuCloseBtn" class="text-gray-400 hover:text-white text-2xl font-mono">&times;</button>
+      </div>
+      <nav class="mt-8 flex flex-col gap-4 text-base font-medium text-gray-300">
+        <a href="index.html" data-nav-item="home" class="py-2 hover:text-athar-gold" data-i18n="nav_home">الرئيسية</a>
+        <a href="about.html" data-nav-item="about" class="py-2 hover:text-athar-gold" data-i18n="nav_about">من نحن</a>
+        <a href="academy.html" data-nav-item="academy" class="py-2 hover:text-athar-gold" data-i18n="nav_academy">أكاديمية أثر</a>
+        <a href="impact.html" data-nav-item="impact" class="py-2 hover:text-athar-gold" data-i18n="nav_impact">أثر المجتمعية</a>
+        <a href="partnerships.html" data-nav-item="partnerships" class="py-2 hover:text-athar-gold" data-i18n="nav_partnerships">الشراكات</a>
+        <a href="volunteer.html" data-nav-item="volunteer" class="py-2 hover:text-athar-gold" data-i18n="nav_volunteer">التطوع</a>
+        <a href="contact.html" data-nav-item="contact" class="py-2 hover:text-athar-gold text-athar-gold" data-i18n="nav_contact">تواصل معنا</a>
+      </nav>
+    </div>
+    <div class="pt-6 border-t border-white/10 space-y-3">
+      <button id="langToggleBtnMobile" class="w-full py-2.5 rounded-[4px] border border-athar-gold/40 text-xs font-mono font-semibold text-athar-gold">
+        <span>English</span>
+      </button>
+      <a href="https://wa.me/9647727437144" target="_blank" rel="noopener noreferrer" class="w-full athar-btn-primary text-xs font-heading font-bold !py-3 text-center block">
+        <span data-i18n="contact_cta_whatsapp">محادثة فورية عبر واتساب</span>
+      </a>
+    </div>
+  </aside>
+
+
+  <!-- ==================== HERO — FULL-BLEED NAVY (Mode 1: Navy & Gold) ==================== -->
+  <section class="section-navy pt-20 pb-28 md:pt-28 md:pb-40">
+    <canvas id="contactHeroCanvas" class="background-canvas-layer"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      <div class="max-w-4xl">
+
+        <!-- Section Identifier -->
+        <span class="section-numeral-tag" data-i18n="contact_badge">00 / ابقى على تواصل — أثر للتعليم والتطوير</span>
+
+        <!-- Display Title -->
+        <h1 class="display-title font-heading text-white mb-6" data-i18n="contact_hero_title">
+          تواصل مع فريق أثر
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="body-lead text-gray-300 max-w-2xl mb-10" data-i18n="contact_hero_desc">
+          نرحب باستفساراتكم، طلبات التعاون، واقتراحاتكم في أي وقت. فريقنا جاهز للتفاعل وتقديم الدعم.
+        </p>
+
+        <!-- CTA Row -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://wa.me/9647727437144" target="_blank" rel="noopener noreferrer" class="athar-btn-primary text-sm">
+            <span data-i18n="contact_cta_whatsapp">محادثة فورية عبر واتساب (07727437144)</span>
+          </a>
+          <a href="#message-form" class="athar-btn-secondary text-sm">
+            <span>إرسال رسالة مباشرة</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== SECTION 01 — DIRECT CHANNELS (Off-White Mode 2) ==================== -->
+  <section class="section-offwhite py-24 md:py-32">
+    <canvas id="contactChannelsCanvas" class="background-canvas-layer"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+      <!-- Section Tag -->
+      <span class="section-numeral-tag" data-i18n="contact_tag_channels">01 / القنوات المباشرة والمقر</span>
+
+      <div class="max-w-3xl mb-12">
+        <h2 class="h1-title text-athar-navy mb-4" data-i18n="contact_title">يسعدنا دائماً تواصلكم</h2>
+        <p class="body-lead text-slate-800" data-i18n="contact_subtitle">
+          فريق أثر جاهز للإجابة على استفساراتكم ومناقشة أفكار التعاون والمبادرات.
+        </p>
+      </div>
+
+      <!-- Hairline Ruled List of Channels -->
+      <div class="hairline-ruled-list">
+
+        <!-- Channel 1: Phone & WhatsApp -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">01</span>
+          <div class="hairline-content">
+            <h3 data-i18n="contact_phone_label">الهاتف وواتساب</h3>
+            <p class="font-mono text-lg font-bold text-athar-navy">
+              <a href="https://wa.me/9647727437144" target="_blank" rel="noopener noreferrer" class="hover:underline">07727437144</a>
+            </p>
+            <div class="mt-2 text-sm text-slate-700 font-medium">متاح للاتصال المباشر والرسائل الفورية اليومية.</div>
+          </div>
+        </div>
+
+        <!-- Channel 2: Instagram -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">02</span>
+          <div class="hairline-content">
+            <h3 data-i18n="contact_insta_label">حساب إنستغرام</h3>
+            <p class="font-mono text-lg font-bold text-athar-navy">
+              <a href="https://instagram.com/atharedu.iq" target="_blank" rel="noopener noreferrer" class="hover:underline">@atharedu.iq</a>
+            </p>
+            <div class="mt-2 text-sm text-slate-700 font-medium">متابعة الإعلانات الدورية، تغطية الورش، والمحتوى التعليمي.</div>
+          </div>
+        </div>
+
+        <!-- Channel 3: Location HQ -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">03</span>
+          <div class="hairline-content">
+            <h3 data-i18n="contact_location_label">المقر الرئيسي</h3>
+            <p class="text-lg font-bold text-athar-navy" data-i18n="contact_location_val">البصرة – العراق</p>
+            <div class="mt-2 text-sm text-slate-700 font-medium">انطلاقة المشروع ومقر تنفيذ المبادرات والشراكات الميدانية.</div>
+          </div>
+        </div>
+
+        <!-- Channel 4: Working Hours -->
+        <div class="hairline-item">
+          <span class="hairline-numeral">04</span>
+          <div class="hairline-content">
+            <h3 data-i18n="contact_hours_label">أيام وساعات العمل</h3>
+            <p class="text-lg font-medium text-athar-navy" data-i18n="contact_hours_val">السبت – الخميس: 9:00 ص – 6:00 م</p>
+            <div class="mt-2 text-sm text-slate-700 font-medium">فريق التنسيق متواجد لمتابعة الطلبات والردود.</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== SECTION 02 — DIRECT MESSAGE FORM (Navy Mode 1) ==================== -->
+  <section id="message-form" class="section-navy py-24 md:py-32">
+    <canvas id="contactFormCanvas" class="background-canvas-layer"></canvas>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+        <!-- Left: Form Narrative -->
+        <div class="lg:col-span-5">
+          <span class="section-numeral-tag" data-i18n="contact_tag_form">02 / رسالة مباشرة واستفسار</span>
+          
+          <h2 class="h1-title text-white mb-6" data-i18n="contact_form_title">أرسل لنا رسالة مباشرة</h2>
+          <p class="body-lead text-gray-100 mb-8">
+            املأ النموذج أدناه وسيقوم فريق أثر بمراجعة رسالتك والتواصل معك عبر واتساب أو الهاتف في أقرب وقت.
+          </p>
+
+          <div class="border border-athar-gold/25 rounded-[4px] p-6 space-y-3 bg-athar-navy-dark/40">
+            <div class="meta-mono text-sm font-bold text-athar-gold">WHATSAPP QUICK CONNECT</div>
+            <p class="text-sm text-gray-200 leading-relaxed">
+              إذا كنت تفضل المحادثة المباشرة دون انتظار، يمكنك مراسلتنا فوراً عبر واتساب على الرقم:
+            </p>
+            <a href="https://wa.me/9647727437144" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-athar-gold font-mono font-bold hover:underline">
+              <span>07727437144</span>
+              <span>&larr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: The Contact Form -->
+        <div class="lg:col-span-7">
+          <div class="border border-athar-gold/25 rounded-[4px] p-8 lg:p-10 bg-athar-navy-dark/40">
+
+            <form id="directContactForm" class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-sm font-semibold text-athar-gold mb-1.5">الاسم الكامل *</label>
+                  <input type="text" id="contactName" required placeholder="الاسم الثلاثي أو اللقب" class="athar-editorial-input">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-athar-gold mb-1.5">رقم الهاتف / واتساب *</label>
+                  <input type="tel" id="contactPhone" required placeholder="077XXXXXXXX" class="athar-editorial-input font-mono">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-sm font-semibold text-athar-gold mb-1.5">موضوع الرسالة *</label>
+                  <select id="contactSubject" class="athar-editorial-input">
+                    <option value="استفسار عن دورات أكاديمية أثر">استفسار عن دورات أكاديمية أثر</option>
+                    <option value="طلب ورشة مجانية (أثر المجتمعية)">طلب ورشة مجانية (أثر المجتمعية)</option>
+                    <option value="شراكة وتعاون مؤسسي">شراكة وتعاون مؤسسي</option>
+                    <option value="انضمام وتطوع">انضمام وتطوع</option>
+                    <option value="اقتراح أو موضوع آخر">اقتراح أو موضوع آخر</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-athar-gold mb-1.5">البريد الإلكتروني (اختياري)</label>
+                  <input type="email" id="contactEmail" placeholder="example@email.com" class="athar-editorial-input font-mono">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-athar-gold mb-1.5">نص الرسالة أو الاستفسار *</label>
+                <textarea id="contactMessage" required rows="4" placeholder="اكتب تفاصيل استفسارك أو طلبك هنا..." class="athar-editorial-input resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="athar-btn-primary w-full mt-4">
+                <span data-i18n="form_submit_btn">إرسال الطلب الآن</span>
+              </button>
+              
+              <!-- Success State -->
+              <div id="contactFormSuccessMsg" class="hidden p-5 rounded-[4px] bg-emerald-900/30 border border-emerald-500/40 text-center mt-4">
+                <h4 class="font-heading font-bold text-white text-base mb-1" data-i18n="form_success_title">تم استلام طلبكم بنجاح</h4>
+                <p class="text-xs text-gray-300" data-i18n="form_success_desc">شكراً لاهتمامك بمشروع أثر. سيقوم فريقنا بالتواصل معك في أقرب وقت ممكن.</p>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== EDITORIAL FOOTER ==================== -->
+  <footer class="bg-athar-navy-dark text-white pt-20 pb-16 border-t border-athar-gold/20 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+        
+        <!-- Brand Narrative Column -->
+        <div class="md:col-span-5 space-y-6">
+          <div class="flex items-center gap-3">
+            <span class="font-heading font-bold text-2xl text-white">أثر | ATHAR</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed max-w-sm" data-i18n="footer_tagline">
+            نعلّم اليوم، لنصنع أثر الغد. مشروع عراقي رائد ينطلق من البصرة لتمكين الأجيال القادمة وبناء قدرات الشباب.
+          </p>
+          <div class="meta-mono text-xs text-athar-gold space-y-1">
+            <div>HQ: BASRA — IRAQ</div>
+            <div>TEL: 07727437144</div>
+            <div>IG: @ATHAREDU.IQ</div>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="md:col-span-3 space-y-3">
+          <span class="meta-mono text-xs text-athar-gold block mb-4">PAGES / الصفحات</span>
+          <ul class="space-y-2 text-sm text-gray-400 font-medium">
+            <li><a href="index.html" class="hover:text-athar-gold transition-colors">الرئيسية</a></li>
+            <li><a href="about.html" class="hover:text-athar-gold transition-colors">من نحن والفلسفة</a></li>
+            <li><a href="academy.html" class="hover:text-athar-gold transition-colors">أكاديمية أثر</a></li>
+            <li><a href="impact.html" class="hover:text-athar-gold transition-colors">أثر المجتمعية</a></li>
+            <li><a href="partnerships.html" class="hover:text-athar-gold transition-colors">الشراكات المؤسسية</a></li>
+            <li><a href="volunteer.html" class="hover:text-athar-gold transition-colors">فريق التطوع</a></li>
+            <li><a href="contact.html" class="hover:text-athar-gold transition-colors text-athar-gold">تواصل معنا</a></li>
+          </ul>
+        </div>
+
+        <!-- Communication Hours -->
+        <div class="md:col-span-4 space-y-3">
+          <span class="meta-mono text-xs text-athar-gold block mb-4">DIRECT REACH / التواصل المباشر</span>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            السبت إلى الخميس من الساعة 9:00 صباحاً حتى 6:00 مساءً.<br>
+            يمكن إرسال رسائل واتساب في أي وقت وسيتم الرد خلال ساعات الدوام.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Legal & Accreditation Transparency Notice -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-mono">
+        <p>جميع الحقوق محفوظة © 2026 مشروع أثر للتعليم والتطوير (ATHAR)</p>
+        <p class="text-gray-400 max-w-xl text-center md:text-end">
+          تنويه: المشروع في مرحلة التأسيس من البصرة، والشهادات الممنوحة في الورش التدريبية هي شهادات حضور ومشاركة تصدر عن أثر.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING WHATSAPP CTA ==================== -->
+  <button data-whatsapp-action class="athar-whatsapp-cta" aria-label="واتساب مباشر">
+    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/></svg>
+    <span>07727437144</span>
+  </button>
+
+  <!-- Scripts -->
+  <script src="pattern-background.js"></script>
+  <script src="translations.js"></script>
+  <script src="main.js"></script>
+
+  <script>
+    // Hero Canvas (Mode 1: Navy & Gold)
+    const contactHeroCanvas = document.getElementById('contactHeroCanvas');
+    if (contactHeroCanvas) {
+      new AtharPatternBackground(contactHeroCanvas, {
+        mode: 'navy',
+        interactive: true,
+        animated: true
+      });
+    }
+
+    // Channels Canvas (Mode 2: Off-White)
+    const contactChannelsCanvas = document.getElementById('contactChannelsCanvas');
+    if (contactChannelsCanvas) {
+      new AtharPatternBackground(contactChannelsCanvas, {
+        mode: 'offwhite',
+        interactive: true,
+        animated: true
+      });
+    }
+
+    // Form Canvas (Mode 1: Navy & Gold)
+    const contactFormCanvas = document.getElementById('contactFormCanvas');
+    if (contactFormCanvas) {
+      new AtharPatternBackground(contactFormCanvas, {
+        mode: 'navy',
+        interactive: true,
+        animated: true
+      });
+    }
+
+    // Contact Form Handler
+    const contactForm = document.getElementById('directContactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const data = {
+          name: document.getElementById('contactName').value,
+          phone: document.getElementById('contactPhone').value,
+          subject: document.getElementById('contactSubject').value,
+          email: document.getElementById('contactEmail').value,
+          message: document.getElementById('contactMessage').value,
+          timestamp: new Date().toISOString(),
+          type: 'رسالة اتصال مباشرة'
+        };
+
+        const submissions = JSON.parse(localStorage.getItem('athar_contact_messages') || '[]');
+        submissions.push(data);
+        localStorage.setItem('athar_contact_messages', JSON.stringify(submissions));
+
+        contactForm.style.display = 'none';
+        document.getElementById('contactFormSuccessMsg').classList.remove('hidden');
+      });
+    }
+  </script>
+
+</body>
+</html>
